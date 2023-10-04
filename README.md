@@ -11,6 +11,6 @@ here are the figma ideas (not final version)
 
 it looks a lot like the tmbd app but that's the intention, use it like some sort of standard for the rest of the app.
 
-while I'm doing it i'll try and implement firebase Auth, storage and maybe push in notification.  
+while I'm doing it i'll try and implement firebase Auth, firestore, crashlytics and maybe push in notification.  
 
 Using of course the best of practices like MVVM + clean Architecture and DI w dagger2.
