@@ -13,4 +13,4 @@ it looks a lot like the tmbd app but that's the intention, use it like some sort
 
 while I'm doing it i'll try and implement firebase Auth, firestore, crashlytics and maybe push in notification.  
 
-Using of course the best of practices like MVVM + clean Architecture and DI w dagger2.
+Using of course the best of practices like MVVM + clean Architecture and DI w dagger2 and maybe flow

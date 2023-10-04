@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MSG-app</string>
+    <string name="tmbd_key" translatable="false">ACCESS_TOKEN_TMBD</string>
 </resources>
