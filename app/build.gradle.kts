@@ -1,18 +1,21 @@
+import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
     namespace = "com.example.msg_app"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.msg_app"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -29,14 +32,22 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            configure<CrashlyticsExtension>{
+                nativeSymbolUploadEnabled = true
+                strippedNativeLibsDir = "build/intermediates/stripped_native_libs/release/out/lib"
+                unstrippedNativeLibsDir = "build/intermediates/merged_native_libs/release/out/lib"
+            }
+        }
+        debug {
+            resValue("string","tmbd_key", com.android.build.gradle.internal.cxx.configure.gradleLocalProperties(rootDir).getProperty("ACCESS_TOKEN_TMBD"))
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -64,6 +75,8 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("io.coil-kt:coil-compose:2.3.0")
+    //livedata for compose
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.0-alpha07")
 
     //daggerHilt
     implementation("com.google.dagger:hilt-android:2.44")
