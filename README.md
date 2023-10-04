@@ -2,7 +2,7 @@
 
 Project with the intention of training jetpack compose skills.
 
-It'll be a project about Music, Songs and Games using public apis.
+It'll be a project about Movies, Songs and Games using public apis.
 
 here are the figma ideas (not final version)
 
