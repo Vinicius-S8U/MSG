@@ -22,4 +22,22 @@ class TMDBRepository @Inject constructor(
             api.getPopularMoviesList(accessKey)
         }
     }
+
+    suspend fun getTopRatedMovies(accessKey: String):ResultWrapper<MovieResponse>{
+        return requestHandler {
+            api.getTopRatedMoviesList(accessKey)
+        }
+    }
+
+    suspend fun getNowPlayingMovies(accessKey: String):ResultWrapper<MovieResponse>{
+        return requestHandler {
+            api.getNowPlayingMoviesList(accessKey)
+        }
+    }
+
+    suspend fun getUpcomingMovies(accessKey: String):ResultWrapper<MovieResponse>{
+        return requestHandler {
+            api.getUpcomingMoviesList(accessKey)
+        }
+    }
 }
